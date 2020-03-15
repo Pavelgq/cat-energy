@@ -103,12 +103,12 @@ gulp.task("serve", function() {
     cors: true,
     ui: false
   });
+  gulp.watch('less/**/*.less', gulp.parallel(["style"]));
+  gulp.watch('*.html', gulp.parallel(["html"]));
+  gulp.watch('build\*.html').on('change', server.reload);
+  gulp.watch('js/*.js', gulp.parallel(["uglify"]));
 
-  gulp.watch("less/**/*.{scss,less}", ["style"]);
-  gulp.watch("*.html", ["html"]);
-  gulp.watch("js/*.js", ["uglify"]);
 });
-
 // Копирование файлов
 gulp.task("copy", function() {
   return gulp.src([
