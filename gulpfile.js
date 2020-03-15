@@ -18,101 +18,83 @@ var run = require("run-sequence");
 var uglify = require('gulp-uglify');
 var pump = require('pump');
 var htmlmin = require('gulp-htmlmin');
+var csscomb = require('csscomb');
+var del = require("del");
 
-//config build
-
-
-//end config build
-
-//config min js uglify
-
-gulp.task("compress", function (cb) {
-  pump([
-      gulp.src("js/*.js"),
-      uglify(),
-      gulp.dest("build/js")
-    ],
-    cb
-  );
-});
-
-//end config min js
-
-//config min html
-
-gulp.task('minify', function() {
-  return gulp.src('*.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('build'));
-});
-
-//end config min html
-
-//sprite config
-
-var config = {
-  shape: {
-    dimension		: {
-
-    },
-    spacing: {
-      padding			: 20,
-      box				: 'content'
-    }
-  },
-  mode: {
-    view: { // Activate the «css» mode
-      bust: false,
-      sprite: "../sprite/sprite.svg"
-    },
-  },
-};
-
-var configS = {
-  shape: {
-    spacing: {
-      padding: 0
-    }
-  },
-  mode: {
-    symbol: {
-      sprite: "../../img/sprite/sprite-symbols.svg"
-    }
-  },
-};
-
-gulp.task("sprite", function () {
-  return gulp.src("img/*.svg")
-  .pipe(svgSprite(config))
-    .pipe(gulp.dest("build/img"));
-
-});
-
-gulp.task("spriteSymbol", function() {
-  return gulp.src("img/*.svg")
-    .pipe(svgSprite(configS))
-    .pipe(gulp.dest("build/img"));
-});
-
-//end sprite config
-
-//config style (+ css min)
-
-gulp.task("style", function() {
+//Создание файла стилей и минификация
+gulp.task("style", function(callback){
   gulp.src("less/style.less")
-    .pipe(plumber())
-    .pipe(less())
-    .pipe(postcss([
-      autoprefixer()
-    ]))
-    .pipe(gulp.dest("css"))
-    .pipe(minify())
-    .pipe(rename("style.min.css"))
-    .pipe(gulp.dest("css"))
+  .pipe(plumber())
+  .pipe(less())
+  .pipe(postcss([
+    autoprefixer()
+  ]))
+  .pipe(gulp.dest("build/css"))
+  .pipe(minify())
+  .pipe(rename("style.min.css"))
+  .pipe(gulp.dest("build/css"))
+  .pipe(server.stream());
 
+  callback();
+});
+
+// Минификация js
+gulp.task("uglify", function() {
+  return gulp.src("js/*.js")
+    .pipe(uglify())
+    .pipe(rename({
+      suffix: ".min"
+    }))
+    .pipe(gulp.dest("build/js"))
     .pipe(server.stream());
 });
 
+// Размещение кода в разметке
+gulp.task("html", function () {
+  return gulp.src("*.html")
+    .pipe(posthtml([
+      include()
+    ]))
+    .pipe(gulp.dest("build"))
+    .pipe(server.stream());
+});
+
+// Формирование изображений в формате webp
+gulp.task("webp", function () {
+  return gulp.src("img/**/*.{png,jpg}")
+    .pipe(webp({quality: 90}))
+    .pipe(gulp.dest("build/img"));
+});
+
+// Создание векторного спрайта
+gulp.task("sprite", function () {
+  return gulp.src("img/icon-*.svg")
+    .pipe(svgSprite({
+      inlineSvg: true
+    }))
+    .pipe(rename("sprite.svg"))
+    .pipe(gulp.dest("build/img"));
+});
+
+// Сортировка css-свойств
+gulp.task("csscomb", function() {
+  return gulp.src("less/blocks/*.less")
+    .pipe(csscomb())
+    .pipe(gulp.dest("sass/blocks/"));
+});
+
+// Оптимизация изображений
+gulp.task("imagemin", function() {
+  return gulp.src("img/**/*.{png,jpg,svg}")
+    .pipe(imagemin([
+      imagemin.optipng({optimizationLevel: 3}),
+      imagemin.jpegtran({progressive: true}),
+      imagemin.svgo()
+    ]))
+    .pipe(gulp.dest("img"));
+});
+
+// Запуск сервера со слежением за необходимыми файлами
 gulp.task("serve", function() {
   server.init({
     server: "build/",
@@ -122,63 +104,38 @@ gulp.task("serve", function() {
     ui: false
   });
 
-
   gulp.watch("less/**/*.{scss,less}", ["style"]);
   gulp.watch("*.html", ["html"]);
+  gulp.watch("js/*.js", ["uglify"]);
 });
 
-//config image min
-
-gulp.task("images", function () {
-  return gulp.src("img/*.{png,jpg,svg}")
-    .pipe(imagemin([
-      imagemin.optipng({optimizationLevel: 3}),
-      imagemin.jpegtran({progressive: true}),
-      imagemin.svgo()
-    ]))
-    .pipe(gulp.dest("build/img"));
-});
-
-//end config image min
-
-//config webp
-
-gulp.task("webp", function () {
-  return gulp.src("img/*.{png,jpg}")
-    .pipe(webp({quality: 90}))
-    .pipe(gulp.dest("build/img"));
-});
-
-//end config webp
-
-//config post html
-
-gulp.task("html", function () {
-  return gulp.src("*.html")
-    .pipe(posthtml([
-      include()
-    ]))
-    .pipe(gulp.dest("build"));
-});
-
-//end config post hmtl
-
-//copy in build
-
-gulp.task("copy", function () {
+// Копирование файлов
+gulp.task("copy", function() {
   return gulp.src([
-    "fonts/*.{woff,woff2}"], {
+    "fonts/*.{woff,woff2}",
+    "img/**",
+    "js/*.js"
+  ], {
     base: "."
   })
-    .pipe(gulp.dest("build"));
+  .pipe(gulp.dest("build"));
 });
 
-//end copy
 
-//config del
-
-gulp.task("clean", function () {
+// Удаление файлов
+gulp.task("clean", function() {
   return del("build");
 });
 
-//end config del
+
+// Сборка проекта
+gulp.task("build", gulp.series(
+    "clean",
+    "copy",
+    "style",
+    "uglify",
+    "sprite",
+    "html",
+    "webp"
+  )
+  );

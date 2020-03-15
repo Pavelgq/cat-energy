@@ -16,6 +16,7 @@
   "devDependencies": {
     "autoprefixer": "^9.7.4",
     "browser-sync": "2.26.x",
+    "csscomb": "^4.3.0",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-browserify": "^0.5.1",
@@ -37,7 +38,8 @@
     "run-sequence": "^2.2.1",
     "stylelint": "^13.2.1",
     "stylelint-config-htmlacademy": "0.1.x",
-    "svg4everybody": "^2.1.9"
+    "svg4everybody": "^2.1.9",
+    "svgstore": "^3.0.0-2"
   },
   "scripts": {
     "editorconfig": "editorconfig-cli",
