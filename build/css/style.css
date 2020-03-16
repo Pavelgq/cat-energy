@@ -12,15 +12,3 @@
   font-style: normal;
   font-display: swap;
 }
-body {
-  background: orange;
-}
-p {
-  font-family: 'Oswald-Regular', Arial, sans-serif;
-  font-size: 123px;
-  line-height: 24px;
-}
-a:hover {
-  padding: 0 auto;
-  border: 5px solid tomato;
-}
