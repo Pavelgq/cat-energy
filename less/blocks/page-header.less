@@ -1,4 +1,5 @@
 .page-header {
+  position: relative;
   display: flex;
   flex-direction: column;
 
@@ -6,6 +7,7 @@
 
   margin: 0 auto;
 }
+
 .page-header__wrapper {
   height: 65px;
   position: relative;
@@ -20,13 +22,14 @@
   text-align: center;
 }
 
-.page-header__logo{
+.page-header__logo {
   position: absolute;
 
   top: 0;
   left: 0;
   margin: 11px 0;
 }
+
 .page-header__logo--text {
   width: 101px;
   height: 18px;
@@ -42,14 +45,15 @@
     margin-top: 24px;
   }
 
-  .page-header__wrapper{
+  .page-header__wrapper {
     display: block;
   }
 
   .page-header__name {
     display: none;
   }
-  .page-header__logo{
+
+  .page-header__logo {
     position: relative;
   }
 }
@@ -57,32 +61,36 @@
 @media (min-width: @desktop-width) {
 
   .page-header {
+    position: relative;
     width: 1440px;
 
 
   }
+
   .page-header::after {
     content: "";
 
     position: absolute;
-    top:0;
+    top: -24px;
     right: 0;
 
     width: 50%;
     height: 698px;
 
     background-image: url(/img/index-background-desktop.jpg);
-    background-size: auto 100% ;
+    background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: top right;
     background-color: #64a83b;
 
     z-index: -1;
   }
-  .page-header__wrapper{
+
+  .page-header__wrapper {
     margin-left: 110px;
   }
-  .page-header__logo{
+
+  .page-header__logo {
     position: relative;
 
   }
