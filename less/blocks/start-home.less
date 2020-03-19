@@ -90,7 +90,8 @@
 
     font-size: 60px ;
     line-height:60px ;
-
+    margin: 0;
+    margin-top: 38px;
     margin-bottom: 35px;
   }
 
@@ -99,20 +100,39 @@
 
     font-size: 20px ;
     line-height:20px ;
-
+    margin: 0;
     margin-bottom: 32px;
   }
 
   .start-home__image {
     position: absolute;
-    margin-top: 28px;
+    top: 200px;
+
+    z-index: -1;
   }
   .start-home__button{
-
     margin-bottom: 530px;
   }
 }
 
 @media (min-width: @desktop-width) {
-
+  .start-home {
+    align-items:flex-start;
+    width: 427px;
+    padding-left: 190px;
+    margin: 0;
+  }
+  .start-home__title {
+    margin-top: 78px;
+    margin-bottom: 45px;
+  }
+  .start-home__text {
+    margin-bottom: 48px;
+  }
+  .start-home__image {
+    position: absolute;
+    top: -30px;
+    right: -300px;
+    z-index: -1;
+  }
 }

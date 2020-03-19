@@ -22,8 +22,8 @@ var csscomb = require('csscomb');
 var del = require("del");
 
 //Создание файла стилей и минификация
-gulp.task("style", function (callback) {
-  gulp.src("less/style.less")
+gulp.task("style", function () {
+  return gulp.src("less/style.less")
     .pipe(plumber())
     .pipe(less())
     .pipe(postcss([
@@ -35,7 +35,6 @@ gulp.task("style", function (callback) {
     .pipe(gulp.dest("build/css"))
     .pipe(server.stream());
 
-  callback();
 });
 
 // Минификация js
@@ -63,14 +62,14 @@ gulp.task("html", function () {
 gulp.task("webp", function () {
   return gulp.src("img/**/*.{png,jpg}")
     .pipe(webp({
-      quality: 90
+      quality: 80
     }))
     .pipe(gulp.dest("build/img"));
 });
 
 // Создание векторного спрайта
 gulp.task("sprite", function () {
-  return gulp.src("img/svg/icon-*.svg")
+  return gulp.src("img/**/icon-*.svg")
     .pipe(svgSprite({
       selector: "i-sp-%f",
       svg: {
@@ -82,7 +81,7 @@ gulp.task("sprite", function () {
       inlineSvg: true
     }))
     .pipe(rename("sprite.svg"))
-    .pipe(gulp.dest("build/img/svg"));
+    .pipe(gulp.dest("build/img/svg1"));
 });
 
 // Сортировка css-свойств
