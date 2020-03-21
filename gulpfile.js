@@ -69,19 +69,16 @@ gulp.task("webp", function () {
 
 // Создание векторного спрайта
 gulp.task("sprite", function () {
-  return gulp.src("img/**/icon-*.svg")
+  return gulp.src("img/**/*.svg")
     .pipe(svgSprite({
-      selector: "i-sp-%f",
-      svg: {
-        sprite: "svg.svg"
-      },
-      svgPath: "%f",
-      cssFile: "svg_sprite.css",
-      common: "ic",
-      inlineSvg: true
+      mode: {
+        stack: {
+            sprite: "../sprite.svg"  //sprite file name
+        }
+    },
     }))
     .pipe(rename("sprite.svg"))
-    .pipe(gulp.dest("build/img/svg1"));
+    .pipe(gulp.dest("build/img/svg"));
 });
 
 // Сортировка css-свойств
