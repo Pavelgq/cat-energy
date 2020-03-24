@@ -1,6 +1,5 @@
-
-.experience{
-
+.experience {
+  background-color: @footer-back;
 }
 
 .experience__title{
@@ -10,6 +9,9 @@
 
   padding: 0;
   margin: 0;
+
+  padding-top: 30px;
+  margin-bottom: 30px;
 }
 
 .experience__text{
@@ -19,6 +21,7 @@
 
   padding: 0;
   margin: 0;
+  margin-bottom: 25px;
 }
 
 
@@ -46,13 +49,13 @@
 
   font-family: @osvald-regular;
   font-size: 24px;
-  line-height:24px;
+  line-height: 24px;
   text-align: center;
-  vertical-align: middle;
-
   border: 1px solid #d9d9d9;
+  border-radius: 2px;
 }
-.experience__about{
+
+.experience__about {
   position: absolute;
 
   top:35px;
@@ -61,10 +64,69 @@
   width: 77px;
   padding: 0 5px ;
 
-  background-color: @light-back;
+  background-color: rgba(00, 00, 00, 0);
 
   font-family: @arial-regular;
   font-size: 12px;
   line-height: 12px;
   text-align: center;
+}
+
+.experience__price {
+
+  font-family: @osvald-regular;
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-align: center;
+
+  margin-bottom: 45px;
+}
+
+.experience__rabbit--before {
+  display: none;
+}
+
+.experience__range {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30px;
+  padding-bottom: 40px;
+}
+
+.experience__progress {
+  position: relative;
+  display: flex;
+  align-items:center;
+  width: 85px;
+  height: 14px;
+
+  background-color: @light-back;
+
+  border: 1px solid #d9d9d9;
+  border-radius:15px;
+}
+
+.experience__progress::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+
+  right: 5px; //js  left: 5px;
+
+  width: 35px;
+  height: 6px;
+  border-radius: 6px;
+  background-color: @theme-back;
+}
+
+.experience__button {
+  font-family: @osvald-regular;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  border: 0;
+  background-color: rgba(00, 00, 00, 0);
+
 }
