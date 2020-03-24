@@ -998,3 +998,21 @@ img {
   border: 0;
   background-color: rgba(0, 0, 0, 0);
 }
+.adress__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.adress__title {
+  font-family: 'Oswald-Regular', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  width: 50%;
+}
+.adress__text {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  width: 50%;
+}
