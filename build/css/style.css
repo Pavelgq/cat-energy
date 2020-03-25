@@ -998,6 +998,49 @@ img {
   border: 0;
   background-color: rgba(0, 0, 0, 0);
 }
+.page-footer__main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #f2f2f2;
+}
+.page-footer__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 280px;
+  height: 95px;
+}
+.page-footer__copyright {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  padding: 22px 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 16px;
+  color: #444444;
+}
+.adress {
+  position: relative;
+}
 .adress__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1015,4 +1058,46 @@ img {
   font-size: 14px;
   line-height: 20px;
   width: 50%;
+}
+.adress__map {
+  position: relative;
+  width: 100%;
+}
+.adress__map-pin {
+  position: absolute;
+  top: 55%;
+  left: 40%;
+  width: 62px;
+  height: 53px;
+  background-image: url(/img/map-pin.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.social {
+  padding: 24px 0 15px;
+  border-top: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+}
+.social__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 130px;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+}
+.social__link--inst {
+  margin-right: 6px;
+}
+.social__link--fb {
+  margin-right: 6px;
 }
