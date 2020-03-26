@@ -1,9 +1,7 @@
-
-
 .how-to__title {
   font-family: @osvald-regular;
   font-size: 36px;
-  line-height:60px;
+  line-height: 60px;
 
   padding: 0;
   margin: 0;
@@ -11,7 +9,7 @@
 
 
 .how-to__list {
-
+  position: relative;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -33,71 +31,100 @@
 
   width: 60px;
   height: 60px;
-  top:0px;
-  left:-80px;
-  background-color:@theme-back;
-
+  top: 0;
+  left: -80px;
+  background-color: @theme-back;
 }
 
 .how-to__item--nature::before {
-  content: "";
-  position: absolute;
-
-  width: 60px;
-  height: 60px;
-  top:0px;
-  left:-80px;
-
   background-image: url(/img/advantage-1.png);
   background-repeat: no-repeat;
-  background-position:center center;
-
+  background-position: center center;
 }
+
 .how-to__item--struct::before {
-  content: "";
-  position: absolute;
-
-  width: 60px;
-  height: 60px;
-  top:0px;
-  left:-80px;
-
   background-image: url(/img/andvantage-2.png);
   background-repeat: no-repeat;
-  background-position:center center;
-
+  background-position: center center;
 }
+
 .how-to__item--eat::before {
-  content: "";
-  position: absolute;
-
-  width: 60px;
-  height: 60px;
-  top:0px;
-  left:-80px;
-
   background-image: url(/img/advantage-3.png);
   background-repeat: no-repeat;
-  background-position:center center;
-
+  background-position: center center;
 }
+
 .how-to__item--time::before {
-  content: "";
-  position: absolute;
-
-  width: 60px;
-  height: 60px;
-  top:0px;
-  left:-80px;
-
   background-image: url(/img/advantage-4.png);
   background-repeat: no-repeat;
-  background-position:center center;
-
+  background-position: center center;
 }
 
 .how-to__text {
   font-family: @arial-regular;
   font-size: 14px;
-  line-height:18px;
+  line-height: 18px;
+}
+
+@media (min-width: @tablet-width) {
+  .how-to__title {
+    font-size: 60px;
+    line-height: 60px;
+    margin-bottom: 30px;
+  }
+
+  .how-to__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .how-to__item {
+    width: 354px;
+    margin: 0;
+    margin-bottom: 85px;
+  }
+
+  .how-to__text {
+    width: 245px;
+    margin-top: 140px;
+  }
+
+  .how-to__item::before {
+    top:40px;
+    left: 0;
+
+    width: 80px;
+    height: 80px;
+  }
+
+  .how-to__item::after {
+
+    position: absolute;
+
+    font-family: @osvald-regular;
+    font-size: 281px;
+    line-height: 281px;
+
+    top:0;
+    left: 120px;
+
+    color: #f2f2f2;
+    z-index: -1;
+  }
+
+  .how-to__item--nature::after {
+    content: "1";
+  }
+
+  .how-to__item--struct::after {
+    content: "2";
+  }
+
+  .how-to__item--eat::after {
+    content: "3";
+  }
+
+  .how-to__item--time::after {
+    content: "4";
+  }
 }
