@@ -67,6 +67,10 @@
 }
 
 @media (min-width: @tablet-width) {
+  .how-to {
+    counter-reset: itemNum;
+  }
+
   .how-to__title {
     font-size: 60px;
     line-height: 60px;
@@ -81,6 +85,7 @@
   .how-to__item {
     width: 354px;
     margin: 0;
+    
     margin-bottom: 85px;
   }
 
@@ -90,7 +95,7 @@
   }
 
   .how-to__item::before {
-    top:40px;
+    top: 40px;
     left: 0;
 
     width: 80px;
@@ -98,7 +103,8 @@
   }
 
   .how-to__item::after {
-
+    counter-increment: itemNum;
+    content: counter(itemNum);
     position: absolute;
 
     font-family: @osvald-regular;
@@ -112,19 +118,5 @@
     z-index: -1;
   }
 
-  .how-to__item--nature::after {
-    content: "1";
-  }
 
-  .how-to__item--struct::after {
-    content: "2";
-  }
-
-  .how-to__item--eat::after {
-    content: "3";
-  }
-
-  .how-to__item--time::after {
-    content: "4";
-  }
 }

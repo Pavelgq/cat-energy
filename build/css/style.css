@@ -916,6 +916,9 @@ img {
   line-height: 18px;
 }
 @media (min-width: 768px) {
+  .how-to {
+    counter-reset: itemNum;
+  }
   .how-to__title {
     font-size: 60px;
     line-height: 60px;
@@ -944,6 +947,8 @@ img {
     height: 80px;
   }
   .how-to__item::after {
+    counter-increment: itemNum;
+    content: counter(itemNum);
     position: absolute;
     font-family: 'Oswald-Regular', Arial, sans-serif;
     font-size: 281px;
@@ -952,18 +957,6 @@ img {
     left: 120px;
     color: #f2f2f2;
     z-index: -1;
-  }
-  .how-to__item--nature::after {
-    content: "1";
-  }
-  .how-to__item--struct::after {
-    content: "2";
-  }
-  .how-to__item--eat::after {
-    content: "3";
-  }
-  .how-to__item--time::after {
-    content: "4";
   }
 }
 .experience {
@@ -1022,8 +1015,8 @@ img {
   top: 35px;
   left: 20px;
   width: 77px;
-  padding: 0 5px ;
-  background-color: rgba(0, 0, 0, 0);
+  padding: 0 5px;
+  background-color: #f2f2f2;
   font-family: Arial, sans-serif;
   font-size: 12px;
   line-height: 12px;
@@ -1084,6 +1077,110 @@ img {
   text-transform: uppercase;
   border: 0;
   background-color: rgba(0, 0, 0, 0);
+}
+@media (min-width: 768px) {
+  .experience {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), color-stop(57%, #ffffff), color-stop(57%, #f2f2f2), to(#f2f2f2));
+    background-image: linear-gradient(#ffffff 0%, #ffffff 57%, #f2f2f2 57%, #f2f2f2 100%);
+  }
+  .experience__title {
+    font-size: 60px;
+    line-height: 60px;
+  }
+  .experience__text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .experience__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .experience__item {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-right: 40px;
+  }
+  .experience__price {
+    font-size: 20px;
+    line-height: 20px;
+    width: 192px;
+    text-align: right;
+  }
+  .experience__fact {
+    width: 160px;
+    font-size: 30px;
+    line-height: 30px;
+  }
+  .experience__about {
+    position: relative;
+    width: auto;
+    top: auto;
+    left: auto;
+    bottom: 9px;
+    margin: 0;
+    padding: 0 5px;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    background-color: #ffffff;
+  }
+  .experience__progress {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 428px;
+    height: 6px;
+    background-color: #d9d9d9;
+    border-radius: 3px;
+  }
+  .experience__progress::before {
+    content: "";
+    position: absolute;
+    top: -14px;
+    right: 250px;
+    width: 34px;
+    height: 34px;
+    background-color: #ffffff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #cdcdcd;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+            box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+  }
+  .experience__progress::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 264px;
+    width: 8px;
+    height: 8px;
+    background-color: #68b738;
+    border-radius: 50%;
+  }
+  .experience__range {
+    width: 574px;
+  }
+  .experience__button {
+    border-bottom: 1px dashed #d9d9d9;
+  }
 }
 .page-footer__main {
   display: -webkit-box;
