@@ -801,6 +801,57 @@ img {
   line-height: 16px;
   text-transform: uppercase;
 }
+@media (min-width: 768px) {
+  .programs__wrapper {
+    width: 768px;
+  }
+  .programs__list {
+    width: 708px;
+  }
+  .programs__item {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    padding-top: 70px;
+    padding-left: 50px;
+  }
+  .programs__title {
+    font-size: 36px;
+    line-height: 36px;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  .programs__text {
+    width: 380px;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 60px;
+    border: none;
+  }
+  .programs__illustration {
+    width: 200px;
+    height: 200px;
+    top: 80px;
+    right: 50px;
+  }
+  .programs__link {
+    margin-bottom: 60px;
+    padding: 0;
+  }
+  .programs__link span {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
 .how-to__title {
   font-family: 'Oswald-Regular', Arial, sans-serif;
   font-size: 36px;
