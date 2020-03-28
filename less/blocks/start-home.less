@@ -1,14 +1,14 @@
-
 .start-home {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
   width: 320px;
 
   margin: 0 auto;
-
+  margin-bottom: 20px;
 }
+
 .start-home::after {
   content: "";
 
@@ -32,8 +32,8 @@
 
 
   font-family: @osvald-regular;
-  font-size: 36px ;
-  line-height:36px ;
+  font-size: 36px;
+  line-height: 36px;
 
   color: @light-text;
   text-align: center;
@@ -48,8 +48,8 @@
 
   text-transform: uppercase;
   font-family: @osvald-regular;
-  font-size: 14px ;
-  line-height:14px ;
+  font-size: 14px;
+  line-height: 14px;
 
   color: @light-text;
   text-align: center;
@@ -64,7 +64,7 @@
   margin-top: 28px;
 }
 
-.start-home__button{
+.start-home__button {
 
   margin-top: 3px;
 }
@@ -72,10 +72,11 @@
 @media (min-width: @tablet-width) {
 
   .start-home {
-    align-items:flex-start;
+    align-items: flex-start;
     width: 427px;
     padding-left: 120px;
     padding-right: 192px;
+    margin: 0 auto;
   }
 
   .start-home::after {
@@ -83,13 +84,14 @@
     width: 0;
     height: 0;
   }
+
   .start-home__title {
 
     color: @dark-text;
     text-align: left;
 
-    font-size: 60px ;
-    line-height:60px ;
+    font-size: 60px;
+    line-height: 60px;
     margin: 0;
     margin-top: 38px;
     margin-bottom: 35px;
@@ -98,8 +100,8 @@
   .start-home__text {
     color: @dark-text;
 
-    font-size: 20px ;
-    line-height:20px ;
+    font-size: 20px;
+    line-height: 20px;
     margin: 0;
     margin-bottom: 32px;
   }
@@ -107,32 +109,49 @@
   .start-home__image {
     position: absolute;
     top: 200px;
-
+    left: 40px;
     z-index: -1;
   }
-  .start-home__button{
-    margin-bottom: 530px;
+
+  .start-home__button {
+    font-size: 20px;
+    line-height: 20px;
+
+    padding: 15px 24px;
+    margin-bottom: 550px;
   }
 }
 
 @media (min-width: @desktop-width) {
   .start-home {
-    align-items:flex-start;
+    align-items: flex-start;
     width: 427px;
     padding-left: 190px;
     margin: 0;
+    margin-bottom: 268px;
   }
+
   .start-home__title {
     margin-top: 78px;
     margin-bottom: 45px;
   }
+
   .start-home__text {
     margin-bottom: 48px;
   }
+
   .start-home__image {
     position: absolute;
+    width: 522px;
+    height: 499px;
     top: -30px;
-    right: -300px;
+    left: auto;
+    right: -280px;
     z-index: -1;
   }
+
+  .start-home__button {
+    margin-bottom: 0;
+  }
+
 }
