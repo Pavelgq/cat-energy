@@ -23,6 +23,10 @@
   width: 50%;
 }
 
+.adress__text br {
+  display: none;
+}
+
 .adress__map-container {
   position: relative;
   width: 320px;
@@ -48,6 +52,7 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
+
 
 @media (min-width: @tablet-width) {
 
@@ -87,7 +92,6 @@
   }
 
   .adress__map-pin {
-    position: absolute;
 
     top: 150px;
     left: 330px;
@@ -100,4 +104,39 @@
     background-size: 100% 100%;
   }
 
+}
+
+@media (min-width: @desktop-width) {
+  .adress__map-container {
+    width: 1440px;
+  }
+
+  .adress__map {
+    width: 1440px;
+  }
+
+  .adress__wrapper {
+    position: absolute;
+
+    z-index: 1;
+    padding: 65px 70px;
+    margin-top: 90px;
+
+    background-color: @light-back;
+  }
+
+  .adress__map-pin {
+    position: absolute;
+
+    top: 150px;
+    left: 960px;
+
+    width: 124px;
+    height: 106px;
+
+  }
+
+  .adress__text br {
+    display: block;
+  }
 }

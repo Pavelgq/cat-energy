@@ -239,3 +239,48 @@
     border-bottom: 1px dashed #d9d9d9;
   }
 }
+
+@media (min-width: @desktop-width) {
+  .experience {
+    background-image: linear-gradient(#ffffff 0%, #ffffff 28%, #f2f2f2 28%, #f2f2f2 100%);
+  }
+
+  .experience__column {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .experience__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .experience__title {
+    margin-bottom: 135px;
+  }
+
+  .experience__text {
+    width: 440px;
+
+  }
+
+  .experience__wrapper {
+    flex-direction: column;
+  }
+
+  .experience__list {
+    justify-content: space-between;
+    width: 365px;
+    margin-bottom: 56px;
+  }
+  .experience__item {
+    margin: 0;
+  }
+
+  .experience__price {
+    width: 335px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+  }
+}
