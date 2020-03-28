@@ -25,7 +25,7 @@
 
 
     </div>
-    <nav class="main-nav main-nav--opened">
+    <nav class="main-nav main-nav--nojs main-nav--closed">
       <button class="main-nav__toggle" type="button"><span class="visually-hidden">Открыть меню</span></button>
       <ul class="main-nav__list site-list">
         <li class="site-list__item site-list__item--active"><a class="site-list__link">Главная</a></li>
@@ -68,7 +68,14 @@
             <p class="programs__text">Ваш кот весит больше собаки и почти утратил способность лазить по деревьям? Пора
               на
               диету! Cat Energy Slim поможет вашему питомцу сбросить лишний вес.</p>
-            <a href="" class="programs__link"><span>Каталог Slim</span></a>
+            <a href="" class="programs__link"><span>Каталог Slim</span>
+
+                <svg width="24" height="11" class="programs__arrow">
+                  <title>Стрелка</title>
+                  <use xlink:href="/img/svg/sprite.svg#svg--icon-arrow"></use>
+
+                </svg>
+            </a>
           </li>
           <li class="programs__item">
             <div class="programs__illustration">
@@ -81,7 +88,15 @@
             <h3 class="programs__title">Набор массы</h3>
             <p class="programs__text">Заработать авторитет среди дворовых котов и даже собак?
               Серия Cat Energy Pro поможет вашему коту нарастить необходимые мышцы!</p>
-            <a href="" class="programs__link"><span>Каталог Pro</span></a>
+            <a href="" class="programs__link"><span>Каталог Pro</span>
+            <span class="programs__arrow arrow">
+              <svg width="24" height="11" class="programs__arrow">
+                <title>Стрелка</title>
+                <use xlink:href="/img/svg/sprite.svg#svg--icon-arrow"></use>
+
+              </svg>
+            </span>
+          </a>
           </li>
         </ul>
 
@@ -131,27 +146,29 @@
           </div>
         </div>
         <div class="experience__interactive">
+
+          <div class="experience__cat-box">
           <picture>
             <source media="(min-width:1440px)" srcset="/img/after-desktop.png">
             <source media="(min-width:768px)" srcset="/img/after-tablet.png">
 
             <img src="/img/after-desktop.png" alt="Ваш питомец после программы питания"
-              class="experience__rabbit experience__rabbit--after">
+              class="experience__rabbit experience__rabbit--after ">
           </picture>
           <picture>
             <source media="(min-width:1440px)" srcset="/img/before-desktop.png">
             <source media="(min-width:768px)" srcset="/img/before-tablet.png">
 
             <img src="/img/before-desktop.png" alt="Ваш питомец до программы питания"
-              class="experience__rabbit experience__rabbit--before">
+              class="experience__rabbit experience__rabbit--before experience__rabbit--show">
           </picture>
-
+        </div>
           <div class="experience__range">
-            <button type="button" class="experience__button">Было</button>
+            <button type="button" class="experience__button experience__button--before">Было</button>
             <div class="experience__progress">
 
             </div>
-            <button type="button" class="experience__button">Стало</button>
+            <button type="button" class="experience__button experience__button--after">Стало</button>
           </div>
         </div>
 
@@ -222,7 +239,7 @@
     </section>
   </footer>
 
-
+  <script src="\js\action.min.js"></script>
 </body>
 
 </html>

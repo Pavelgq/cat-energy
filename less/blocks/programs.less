@@ -85,6 +85,7 @@
   text-transform: uppercase;
 }
 
+
 @media (min-width: @tablet-width) {
   .programs__wrapper {
     width: 768px;
@@ -142,6 +143,19 @@
   .programs__link span {
     font-size: 20px;
     line-height: 20px;
+  }
+
+  .programs__arrow {
+    margin-left: 15px;
+    margin-bottom: 3px;
+
+    transform: translateX(0);
+    transition: transform 0.4s;
+  }
+
+  .programs__link:hover .programs__arrow {
+    transform: translateX(5px);
+    transition: transform 0.4s;
   }
 
   .programs__picture--slim {
