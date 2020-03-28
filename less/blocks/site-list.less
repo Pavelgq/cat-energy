@@ -4,6 +4,7 @@
 
   list-style: none;
   text-align: center;
+
 }
 
 .site-list__item {
@@ -11,9 +12,7 @@
   border-top: 2px solid #f2f2f2;
 }
 
-.site-list a {
-
-
+.site-list__link {
   display: block;
 
   margin: 25px auto;
@@ -24,10 +23,9 @@
   line-height: 20px;
 
   color: @dark-text;
-
 }
 
-.site-list a[href] {
+.site-list__link[href] {
   &:hover {
     opacity: 0.6;
   }
@@ -37,21 +35,30 @@
   }
 }
 
+.site-list__link--active span {
+  border-bottom: 2px solid @theme-back;
+}
+
 
 @media (min-width: @tablet-width) {
   .site-list {
     display: flex;
-
+    height: auto;
   }
 
   .site-list__item {
+
     border: none;
     margin-left: 35px;
 
-
   }
+
   .site-list__item--active {
     border-bottom: 2px solid @theme-back;
+  }
+
+  .site-list__link--active {
+    border-bottom: none;
   }
 
   .site-list a {

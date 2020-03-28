@@ -91,13 +91,47 @@
 }
 
 .experience__rabbit {
-  display: none;
+
   width: 280px;
+
+
+  transition: 0.5s;
+}
+
+.experience__rabbit--after {
+  transform: translateX(50%);
+  transition-delay: 0.5s ease-out;
+  opacity: 0;
+  visibility: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+
+}
+
+.experience__rabbit--before {
+  transform: translateX(-50%);
+  transition-delay: 0.5s ease-out;
+  opacity: 0;
+  visibility: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
 
 }
 
 .experience__rabbit--show {
-  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0%);
+  transition: 0.5s ease-out;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+
 }
 
 .experience__range {
@@ -120,18 +154,30 @@
   border: 1px solid #d9d9d9;
   border-radius: 15px;
 }
-
-.experience__progress::after {
+.experience__toggle {
   content: "";
   position: absolute;
   top: 4px;
+  left: 5px;
 
-  right: 5px; //js  left: 5px;
 
   width: 35px;
   height: 6px;
   border-radius: 6px;
   background-color: @theme-back;
+}
+
+.experience__toggle--before {
+
+  transform: translateX(0%);
+  transition: 0.5s ease-out;
+}
+
+.experience__toggle--after {
+  right: 5px;
+
+  transform: translateX(110%);
+  transition: 0.5s ease-out;
 }
 
 
