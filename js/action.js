@@ -1,4 +1,4 @@
-'use struct'
+'use struct';
 
 
 var nav = document.querySelector(".main-nav");
@@ -40,7 +40,9 @@ var before = exp.querySelector(".experience__button--before");
 var after = exp.querySelector(".experience__button--after");
 var rabbitBefore = exp.querySelector(".experience__rabbit--before");
 var rabbitAfter = exp.querySelector(".experience__rabbit--after");
-var toggle = exp.querySelector(".experience__toggle")
+var toggle = exp.querySelector(".experience__toggle");
+
+var progress = document.querySelector('.experience__interactive');
 
 
 function changeCatProgress () {
@@ -53,3 +55,51 @@ function changeCatProgress () {
 
 before.addEventListener('click', changeCatProgress);
 after.addEventListener('click', changeCatProgress);
+
+
+if (viewportWidth > tabletWidth) {
+  var imgBefore = progress.querySelector('.experience__rabbit--before');
+  var imgAfter = progress.querySelector('.experience__rabbit--after');
+  var scale = progress.querySelector('.experience__progress');
+  var range = scale.querySelector('.experience__toggle-range');
+  var toggle = scale.querySelector('.experience__range-label');
+  var toggleClick;
+  toggle.addEventListener('mousedown', function() {
+    toggleClick = true;
+    console.log("click down");
+});
+  document.addEventListener('mouseup', function() {
+    toggleClick = false;
+    console.log("click up");
+  });
+
+  document.addEventListener('mousemove', function(e) {
+      var x = e.clientX;
+
+      if (toggleClick) {
+        toggle.style.left = (x - (viewportWidth-428)/2) + 'px';
+      }
+
+  });
+
+  range.addEventListener('input', function() {
+    imgBefore.style.width = (100 - range.value) + '%';
+    imgAfter.style.width = range.value + '%';
+
+    toggle.style.left = range.value + '%';
+  });
+
+  before.addEventListener('click', function () {
+    imgBefore.style.width = '100%';
+    imgAfter.style.width = '0%';
+    range.value = 0;
+  });
+
+  after.addEventListener('click', function () {
+    imgBefore.style.width = '0%';
+    imgAfter.style.width = '100%';
+    range.value = 100;
+  });
+
+  console.log(scale,range);
+}

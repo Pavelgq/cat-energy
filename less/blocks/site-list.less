@@ -4,7 +4,6 @@
 
   list-style: none;
   text-align: center;
-
 }
 
 .site-list__item {
@@ -50,22 +49,19 @@
 
     border: none;
     margin-left: 35px;
-
   }
 
   .site-list__item--active {
     border-bottom: 2px solid @theme-back;
   }
 
-  .site-list__link--active {
+  .site-list__link--active span{
     border-bottom: none;
   }
 
   .site-list a {
     margin: 0;
   }
-
-
 }
 
 
@@ -73,9 +69,13 @@
   .site-list a {
 
     color: @light-text;
-
   }
+
   .site-list__item--active {
     border-bottom: 2px solid @light-back;
+  }
+
+  .site-list__link--active span {
+    border-bottom: none;
   }
 }

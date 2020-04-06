@@ -85,16 +85,21 @@
 
 .experience__cat-box {
   display: flex;
-  flex-direction: column-reverse;
-  width: 280px;
-  height: 280px;
+  align-items: center;
+  position: relative;
+  width: 610px;
+  height: 465px;
 }
 
 .experience__rabbit {
 
-  width: 280px;
-
-
+  // width: 280px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
   transition: 0.5s;
 }
 
@@ -193,6 +198,9 @@
   cursor: pointer;
 }
 
+.experience__toggle-range {
+  display:none;
+}
 
 @media (min-width: @tablet-width) {
   .experience {
@@ -271,12 +279,12 @@
     border-radius: 3px;
   }
 
-  .experience__progress::before {
-    content: "";
+  .experience__range-label {
+
     position: absolute;
     top: -14px;
 
-    right: 250px; //js  change;
+     //js  change;
 
     width: 34px;
     height: 34px;
@@ -286,14 +294,16 @@
     border-color: rgb(205, 205, 205);
     border-radius: 50%;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+
+    cursor: pointer;
   }
 
-  .experience__progress::after {
+  .experience__range-label::after {
     content: "";
     position: absolute;
-    top: 0;
+    top: 13px;
 
-    right: 264px; //js  change;
+    right: 13px; //js  change;
 
     width: 8px;
     height: 8px;
@@ -308,6 +318,11 @@
 
   .experience__button {
     border-bottom: 1px dashed #d9d9d9;
+  }
+
+  .experience__toggle-range{
+    display: block;
+    width: 100%;
   }
 }
 

@@ -152,22 +152,25 @@
             <source media="(min-width:1440px)" srcset="/img/after-desktop.png">
             <source media="(min-width:768px)" srcset="/img/after-tablet.png">
 
-            <img src="/img/after-desktop.png" alt="Ваш питомец после программы питания"
+            <img src="/img/after-desktop.png" style="width: 100%;" alt="Ваш питомец после программы питания"
               class="experience__rabbit experience__rabbit--after ">
           </picture>
           <picture>
             <source media="(min-width:1440px)" srcset="/img/before-desktop.png">
             <source media="(min-width:768px)" srcset="/img/before-tablet.png">
 
-            <img src="/img/before-desktop.png" alt="Ваш питомец до программы питания"
+            <img src="/img/before-desktop.png" style="width: 100%;" alt="Ваш питомец до программы питания"
               class="experience__rabbit experience__rabbit--before experience__rabbit--show">
           </picture>
         </div>
           <div class="experience__range">
             <button type="button" class="experience__button experience__button--before">Было</button>
             <div class="experience__progress">
-              <div class="experience__toggle experience__toggle--before">
-              </div>
+              <div class="experience__toggle experience__toggle--before"> </div>
+              <label for="toggle" class="experience__range-label"> </label>
+              <input type="range" min="1" max="100" value="50" class="experience__toggle-range" id="toggle">
+
+              </label>
             </div>
             <button type="button" class="experience__button experience__button--after">Стало</button>
           </div>
