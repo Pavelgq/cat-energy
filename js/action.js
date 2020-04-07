@@ -20,8 +20,6 @@ function burgerClickMenu(){
   else if (!nav.classList.contains("main-nav--opened")) {
     nav.classList.toggle("main-nav--closed");
   }
-
-
 }
 
 burger.addEventListener('click', burgerClickMenu);
@@ -34,59 +32,61 @@ if (viewportWidth > tabletWidth) {
 
 
 //experience block
-
-var exp = document.querySelector(".experience__interactive");
-var before = exp.querySelector(".experience__button--before");
-var after = exp.querySelector(".experience__button--after");
-var rabbitBefore = exp.querySelector(".experience__rabbit--before");
-var rabbitAfter = exp.querySelector(".experience__rabbit--after");
-var toggle = exp.querySelector(".experience__toggle");
-
 var progress = document.querySelector('.experience__interactive');
 
+var before = progress.querySelector(".experience__button--before");
+var after = progress.querySelector(".experience__button--after");
+
+var imgBefore = progress.querySelector('.experience__cat--before');
+var imgAfter = progress.querySelector('.experience__cat--after');
+
+var toggle = progress.querySelector(".experience__toggle");
+var scale = progress.querySelector('.experience__progress');
+var range = scale.querySelector('.experience__range');
 
 function changeCatProgress () {
-  rabbitBefore.classList.toggle('experience__rabbit--show');
-  rabbitAfter.classList.toggle('experience__rabbit--show');
+  before.addEventListener('click', function () {
+    imgBefore.style.width = '100%';
+    imgAfter.style.width = '0%';
+    range.value = 0;
+    toggle.classList.add('experience__toggle--before');
+    toggle.classList.remove('experience__toggle--after');
 
-  toggle.classList.toggle('experience__toggle--before');
-  toggle.classList.toggle('experience__toggle--after');
+  });
+
+  after.addEventListener('click', function () {
+    imgBefore.style.width = '0%';
+    imgAfter.style.width = '100%';
+    range.value = 100;
+    toggle.classList.remove('experience__toggle--before');
+    toggle.classList.add('experience__toggle--after');
+  });
+
+  // toggle.classList.remove('experience__toggle--before');
+  // toggle.classList.add('experience__toggle--after');
 }
 
 before.addEventListener('click', changeCatProgress);
 after.addEventListener('click', changeCatProgress);
 
 
+  window.addEventListener('load', function(){
+    if (viewportWidth <= tabletWidth) {
+      imgBefore.style.width = 100 + '%';
+      imgAfter.style.width = 0 + '%';
+    }
+  });
+
 if (viewportWidth > tabletWidth) {
-  var imgBefore = progress.querySelector('.experience__rabbit--before');
-  var imgAfter = progress.querySelector('.experience__rabbit--after');
-  var scale = progress.querySelector('.experience__progress');
-  var range = scale.querySelector('.experience__toggle-range');
-  var toggle = scale.querySelector('.experience__range-label');
-  var toggleClick;
-  toggle.addEventListener('mousedown', function() {
-    toggleClick = true;
-    console.log("click down");
-});
-  document.addEventListener('mouseup', function() {
-    toggleClick = false;
-    console.log("click up");
-  });
 
-  document.addEventListener('mousemove', function(e) {
-      var x = e.clientX;
-
-      if (toggleClick) {
-        toggle.style.left = (x - (viewportWidth-428)/2) + 'px';
-      }
-
-  });
+  var rangeToggle = scale.querySelector('.experience__range');
 
   range.addEventListener('input', function() {
     imgBefore.style.width = (100 - range.value) + '%';
     imgAfter.style.width = range.value + '%';
 
-    toggle.style.left = range.value + '%';
+    rangeToggle.style.left = range.value + '%';
+
   });
 
   before.addEventListener('click', function () {
