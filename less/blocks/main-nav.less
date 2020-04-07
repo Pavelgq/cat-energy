@@ -45,16 +45,17 @@
 }
 
 .main-nav--nojs .main-nav__list {
-  display: block;
+  height: 216px;
+  opacity: 1;
 }
 
-.main-nav--nojs .main-nav__toggle{
+.main-nav--nojs .main-nav__toggle {
   display: none;
 }
 
 
 .main-nav--closed .main-nav__toggle::before {
-  content:"";
+  content: "";
 
   position: absolute;
   top: 23px;
@@ -110,13 +111,19 @@
     margin-bottom: 12px;
   }
 
-  .main-nav__list{
+  .main-nav__list {
     height: auto;
   }
 
 
   .main-nav__toggle {
     display: none;
+  }
+
+  .main-nav--closed .main-nav__list {
+    height: auto;
+    opacity: 1;
+    transition: none;
   }
 }
 
