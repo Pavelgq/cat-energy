@@ -14,13 +14,8 @@ nav.classList.remove('main-nav--nojs');
 //Menu mobile version
 function burgerClickMenu(){
     nav.classList.toggle("main-nav--opened");
-<<<<<<< HEAD
-  }
-  else if (!nav.classList.contains("main-nav--opened")) {
-    nav.classList.toggle("main-nav--closed");
-  }
-=======
->>>>>>> 96425e479da7c85ec2b4398376bdae42f916d695
+
+  
 }
 
 burger.addEventListener('click', burgerClickMenu);
