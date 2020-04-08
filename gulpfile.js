@@ -7,7 +7,6 @@ var plumber = require("gulp-plumber");
 var postcss = require("gulp-postcss");
 var autoprefixer = require("autoprefixer");
 var server = require("browser-sync").create();
-var svgSprite = require("gulp-svg-sprite");
 var minify = require("gulp-csso");
 var rename = require("gulp-rename");
 var imagemin = require("gulp-imagemin");
@@ -20,6 +19,10 @@ var pump = require('pump');
 var htmlmin = require('gulp-htmlmin');
 var csscomb = require('csscomb');
 var del = require("del");
+var svgSprite = require('gulp-svg-sprite');
+var svgmin = require('gulp-svgmin');
+var cheerio = require('gulp-cheerio');
+var replace = require('gulp-replace');;
 
 //Создание файла стилей и минификация
 gulp.task("style", function () {
@@ -68,24 +71,54 @@ gulp.task("webp", function () {
 });
 
 // Создание векторного спрайта
-gulp.task("sprite", function () {
-  return gulp.src("img/**/*.svg")
-    .pipe(svgSprite({
-      mode: {
-        stack: {
-            sprite: "../sprite.svg"  //sprite file name
-        }
-    },
-    }))
-    .pipe(rename("sprite.svg"))
-    .pipe(gulp.dest("build/img/svg"));
+// gulp.task("sprite", function () {
+//   return gulp.src("img/**/*.svg")
+//     .pipe(svgSprite({
+//       mode: {
+//         stack: {
+//             sprite: "../sprite.svg"  //sprite file name
+//         }
+//     },
+//     }))
+//     .pipe(rename("sprite.svg"))
+//     .pipe(gulp.dest("build/img/svg"));
+// });
+
+gulp.task('sprite', function () {
+	return gulp.src("img/**/*.svg")
+	// minify svg
+		.pipe(svgmin({
+			js2svg: {
+				pretty: true
+			}
+		}))
+		// remove all fill, style and stroke declarations in out shapes
+		.pipe(cheerio({
+			run: function ($) {
+				$('[fill]').removeAttr('fill');
+				$('[stroke]').removeAttr('stroke');
+				$('[style]').removeAttr('style');
+			},
+			parserOptions: {xmlMode: true}
+		}))
+		// cheerio plugin create unnecessary string '&gt;', so replace it.
+		.pipe(replace('&gt;', '>'))
+		// build svg sprite
+		.pipe(svgSprite({
+			mode: {
+				symbol: {
+					sprite: "../sprite.svg",
+				}
+			}
+		}))
+		.pipe(gulp.dest('build/img/svg'));
 });
 
 // Сортировка css-свойств
 gulp.task("csscomb", function () {
   return gulp.src("less/blocks/*.less")
     .pipe(csscomb())
-    .pipe(gulp.dest("sass/blocks/"));
+    .pipe(gulp.dest("less/blocks/"));
 });
 
 // Оптимизация изображений

@@ -70,5 +70,68 @@
   &__button{
     width: 280px;
     margin-bottom: 15px;
+
   }
+}
+
+@media (min-width: @tablet-width) {
+  .addition {
+
+    &__title {
+      font-size: 36px;
+      line-height: 36px;
+
+      padding-left: 35px;
+    }
+
+    &__title::after {
+      width: 326px;
+      right: -40px;
+      top: 40px;
+    }
+
+    &__title::before {
+      content: "";
+
+      position: absolute;
+      left: -40px;
+      top: 40px;
+
+      width: 30px;
+      height: 3px;
+
+      background-color: @theme-back;
+    }
+
+    &__item {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      width: 635px;
+      padding: 0 35px;
+    }
+
+    &__name {
+      font-size: 20px;
+      line-height: 20px;
+      color: #222222;
+      width: 300px;
+      margin: 0;
+    }
+
+    &__wrapper {
+
+      width: 230px;
+      margin-top: 25px;
+      margin-bottom: 20px;
+    }
+
+    &__button {
+      width: 100%;
+      padding: 8px 10px;
+    }
+  }
+
+
 }
