@@ -42,6 +42,7 @@
     align-items: center;
     justify-content: flex-end;
     border-top: none;
+
     &__wrapper {
       width: 248px;
       margin-bottom: 35px;
@@ -91,4 +92,22 @@
   }
 
 
+}
+
+@media (min-width: @desktop-width) {
+  .product {
+    width: 245px;
+
+    &__wrapper {
+      width: 170px;
+    }
+
+    &__options {
+      width: 170px;
+    }
+
+    &__button {
+      width: 170px;
+    }
+  }
 }
