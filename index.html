@@ -19,7 +19,7 @@
         </picture>
       </a>
       <a class="page-header__logo--text" href="#">
-        <img class="page-header__name" src="/img/svg/logo-mobile-header.svg" width="101" height="18"
+        <img class="page-header__name" wigth="101" height="18" src="/img/svg/logo-mobile-header.svg" width="101" height="18"
           alt="Логотип Cat Energy">
       </a>
 
@@ -46,7 +46,9 @@
       <h2 class="start-home__title">Функциональное <br> питание для котов</h2>
       <p class="start-home__text">Занялся собой? Займись котом!</p>
       <picture>
-        <img class="start-home__image" src="/img/index-can.png" width="709" height="609"
+        <source media="(min-width:1440px)" srcset="/img/index-can-desktop@1x.png x1, index-can-desktop@2x.png x2">
+          <source media="(min-width:768px)" srcset="/img/index-can-tablet@1x.jpg x1, index-can-tablet@2x.jpg x2">
+        <img class="start-home__image" src="/img/index-can-mobile@1x.png" srcset="/img/index-can-mobile@2x.png x2" width="709" height="609"
           alt="Cat energy Функциональное питание для котов">
       </picture>
       <a href="programs.html" class="start-home__button button">Подобрать программу</a>
@@ -190,9 +192,9 @@
 
       <div class="adress__map-container">
         <picture>
-          <source media="(min-width:1440px)" srcset="/img/map-desktop.png">
-          <source media="(min-width:768px)" srcset="/img/map-tablet.png">
-          <img src="/img/map-mobile.png" alt="Местонахождение ул. Большая Конюшенная, д. 19/8
+          <source media="(min-width:1440px)" srcset="/img/map-desktop@1x.png x1,/img/map-desktop@2x.png x2">
+          <source media="(min-width:768px)" srcset="/img/map-tablet@1x.png x1,/img/map-tablet@2x.png x2">
+          <img src="/img/map-mobile@1x.png" srcset="/img/map-mobile@2x.png x2" alt="Местонахождение ул. Большая Конюшенная, д. 19/8
         Санкт-Петербург" class="adress__map">
         </picture>
         <span class="adress__map-pin"></span>
@@ -209,25 +211,45 @@
           <div class="page-footer__social social">
             <ul class="page-footer__social social__list">
               <li class="social__item">
-                <a class="social__link social__link--vk">
-                  <embed src="/img/svg/icon-vk.svg" width="22" height="12">
+                <a class="social__link social__link--vk" href="#">
+                  <svg width="22" height="12" class="social__icon">
+                    <title>Вконтакте</title>
+                    <use xlink:href="/img/svg/sprite.svg#svg--icon-vk"></use>
+                  </svg>
+
                 </a>
               </li>
               <li class="social__item">
-                <a class="social__link social__link--inst">
-                  <embed src="/img/svg/icon-insta.svg" width="16" height="16">
+                <a class="social__link social__link--inst" href="#">
+                  <svg width="16" height="16" class="social__icon">
+                    <title>Инстаграмм</title>
+                    <use xlink:href="/img/svg/sprite.svg#svg--icon-insta"></use>
+                  </svg>
+
+
                 </a>
               </li>
               <li class="social__item">
-                <a class="social__link social__link--fb">
-                  <embed src="/img/svg/icon-fb.svg" width="10" height="19">
+                <a class="social__link social__link--fb" href="#">
+                  <svg width="10" height="19" class="social__icon">
+                    <title>Фейсбук</title>
+                    <use xlink:href="/img/svg/sprite.svg#svg--icon-fb"></use>
+                  </svg>
+
+
                 </a>
               </li>
             </ul>
           </div>
           <p class="page-footer__copyright">
             <span>HTML academy</span>
-            <embed class="page-footer__logo-academy" src="/img/svg/icon-htmlacademy.svg" width="27" height="34">
+            <a class="" href="htmlacademy.ru">
+              <svg width="27" height="34" class="social__icon">
+                <title>htmlacademy</title>
+                <use xlink:href="/img/svg/sprite.svg#svg--logo-htmlacademy"></use>
+              </svg>
+            </a>
+
           </p>
         </div>
 

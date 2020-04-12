@@ -28,10 +28,10 @@
       <button class="main-nav__toggle" type="button"><span class="visually-hidden">Открыть меню</span></button>
       <ul class="main-nav__list site-list">
         <li class="site-list__item "><a href="index.html" class="site-list__link "><span>Главная</span></a></li>
-        <li class="site-list__item "><a class="site-list__link  " href="#"><span>Каталог продукции</span></a>
+        <li class="site-list__item "><a class="site-list__link" href="catalog.html"><span>Каталог продукции</span></a>
         </li>
         <li class="site-list__item site-list__item--active"><a class="site-list__link site-list__link--active"
-            href="programs.html"><span>Подбор программы</span></a></li>
+            href="#"><span>Подбор программы</span></a></li>
       </ul>
     </nav>
   </header>
@@ -62,10 +62,10 @@
         <div class="form__border">
           <ul class="form__list form__container">
             <li class="form__item"><input type="radio" name="program" id="slim"
-                class="visually-hidden form__radio"><label for="slim"
+                class="visually-hidden form__radio" checked ><label for="slim"
                 class="form__label form__label--radio">Похудение</label></li>
             <li class="form__item"><input type="radio" name="program" id="pro"
-                class="visually-hidden form__radio"><label for="pro" class="form__label form__label--radio">Набор
+                class="visually-hidden form__radio" ><label for="pro" class="form__label form__label--radio">Набор
                 массы</label></li>
             <li class="form__item"><input type="radio" name="program" id="notknow"
                 class="visually-hidden form__radio"><label for="notknow" class="form__label form__label--radio">Не знаю
@@ -80,9 +80,15 @@
           <ul class="form__list form__column form__column--contact">
             <li class="form__item form__item--row"> <label for="email" class="form__label">E-mail*</label>
               <input type="text" name="email" id="email" class="form__text" placeholder="kuklachev@gmail.com">
+              <svg class="form__input-icon form__input-icon--email" width="17" height="42" aria-hidden="true" role="presentation">
+                <use xlink:href="img/svg/sprite.svg#svg--icon-mail"></use>
+              </svg>
             </li>
             <li class="form__item form__item--row"> <label for="phone" class="form__label">Телефон:*</label>
               <input type="text" name="phone" id="phone" class="form__text" placeholder="8 (960) 900-60-90">
+              <svg class="form__input-icon form__input-icon--phone" width="22" height="42" aria-hidden="true" role="presentation">
+                <use xlink:href="/img/svg/sprite.svg#svg--icon-phone"></use>
+              </svg>
             </li>
           </ul>
 
@@ -164,25 +170,45 @@
           <div class="page-footer__social social">
             <ul class="page-footer__social social__list">
               <li class="social__item">
-                <a class="social__link social__link--vk">
-                  <embed src="/img/svg/icon-vk.svg" width="22" height="12">
+                <a class="social__link social__link--vk" href="#">
+                  <svg width="22" height="12" class="social__icon">
+                    <title>Вконтакте</title>
+                    <use xlink:href="/img/svg/sprite.svg#svg--icon-vk"></use>
+                  </svg>
+
                 </a>
               </li>
               <li class="social__item">
-                <a class="social__link social__link--inst">
-                  <embed src="/img/svg/icon-insta.svg" width="16" height="16">
+                <a class="social__link social__link--inst" href="#">
+                  <svg width="16" height="16" class="social__icon">
+                    <title>Инстаграмм</title>
+                    <use xlink:href="/img/svg/sprite.svg#svg--icon-insta"></use>
+                  </svg>
+
+
                 </a>
               </li>
               <li class="social__item">
-                <a class="social__link social__link--fb">
-                  <embed src="/img/svg/icon-fb.svg" width="10" height="19">
+                <a class="social__link social__link--fb" href="#">
+                  <svg width="10" height="19" class="social__icon">
+                    <title>Фейсбук</title>
+                    <use xlink:href="/img/svg/sprite.svg#svg--icon-fb"></use>
+                  </svg>
+
+
                 </a>
               </li>
             </ul>
           </div>
           <p class="page-footer__copyright">
             <span>HTML academy</span>
-            <embed class="page-footer__logo-academy" src="/img/svg/icon-htmlacademy.svg" width="27" height="34">
+            <a class="" href="htmlacademy.ru">
+              <svg width="27" height="34" class="social__icon">
+                <title>htmlacademy</title>
+                <use xlink:href="/img/svg/sprite.svg#svg--logo-htmlacademy"></use>
+              </svg>
+            </a>
+
           </p>
         </div>
 

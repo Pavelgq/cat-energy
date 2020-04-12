@@ -138,11 +138,18 @@
   .programs__link {
     margin-bottom: 60px;
     padding: 0;
+
+    color:#111111;
+    &:active {
+      color: #111111;
+      opacity: 0.3;
+    }
   }
 
   .programs__link span {
     font-size: 20px;
     line-height: 20px;
+
   }
 
   .programs__arrow {
@@ -156,6 +163,12 @@
   .programs__link:hover .programs__arrow {
     transform: translateX(5px);
     transition: transform 0.4s;
+  }
+
+  .programs__link:active .programs__arrow {
+    transform: translateX(5px);
+    transition: transform 0.4s;
+    opacity: 0.5;
   }
 
   .programs__picture--slim {
