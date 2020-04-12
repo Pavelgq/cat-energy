@@ -41,11 +41,14 @@
       <h1 class="page-main__title">Подбор программы</h1>
     </div>
     <form class="page-main__form form" action="" method="get">
-      <div class="container">
-        <p class="subtitle">Заполните анкету и мы подберем
+      <div class="container form__container">
+        <p class="form__subtitle">Заполните анкету и мы подберем
           программу питания для вашего кота</p>
+      </div>
+      <div class="form__column container">
 
-        <div class="form__wrapper">
+
+        <div class="form__wrapper form__container">
           <ul class="form__list">
             <li class="form__item"><label for="name" class="form__label">Имя:*</label><input type="text" name="name"
                 id="name" class="form__text" placeholder="Барсик"></li>
@@ -55,52 +58,66 @@
                 name="age" id="age" class="form__text" placeholder="7"></li>
           </ul>
         </div>
-      </div>
-      <div class="form__border">
-        <ul class="form__list container">
-          <li class="form__item"><input type="radio" name="program" id="slim" class="visually-hidden form__radio"><label
-              for="slim" class="form__label form__label--radio">Похудение</label></li>
-          <li class="form__item"><input type="radio" name="program" id="pro" class="visually-hidden form__radio"><label
-              for="pro" class="form__label form__label--radio">Набор массы</label></li>
-          <li class="form__item"><input type="radio" name="program" id="notknow"
-              class="visually-hidden form__radio"><label for="notknow" class="form__label form__label--radio">Не знаю (нужен ваш
-              совет)</label></li>
-        </ul>
-      </div>
 
+        <div class="form__border">
+          <ul class="form__list form__container">
+            <li class="form__item"><input type="radio" name="program" id="slim"
+                class="visually-hidden form__radio"><label for="slim"
+                class="form__label form__label--radio">Похудение</label></li>
+            <li class="form__item"><input type="radio" name="program" id="pro"
+                class="visually-hidden form__radio"><label for="pro" class="form__label form__label--radio">Набор
+                массы</label></li>
+            <li class="form__item"><input type="radio" name="program" id="notknow"
+                class="visually-hidden form__radio"><label for="notknow" class="form__label form__label--radio">Не знаю
+                (нужен ваш
+                совет)</label></li>
+          </ul>
+        </div>
+      </div>
       <div class="container">
         <h3 class="form__title form__title--contact">Контактные данные (владельца кота)</h3>
 
-        <div class="form__wrapper">
-          <div class="form__string">
-            <label for="email" class="form__label">E-mail*</label>
-            <input type="text" name="email" id="email" class="form__text" placeholder="kuklachev@gmail.com">
-          </div>
-          <div class="form__string">
-            <label for="phone" class="form__label">Телефон:*</label>
-            <input type="text" name="phone" id="phone" class="form__text" placeholder="8 (960) 900-60-90">
-          </div>
-        </div>
+          <ul class="form__list form__column form__column--contact">
+            <li class="form__item form__item--row"> <label for="email" class="form__label">E-mail*</label>
+              <input type="text" name="email" id="email" class="form__text" placeholder="kuklachev@gmail.com">
+            </li>
+            <li class="form__item form__item--row"> <label for="phone" class="form__label">Телефон:*</label>
+              <input type="text" name="phone" id="phone" class="form__text" placeholder="8 (960) 900-60-90">
+            </li>
+          </ul>
+
+
 
         <h3 class="form__title">Комментарий</h3>
         <div class="form__wrapper">
-          <textarea class="form__textarea" name="about" id="about" cols="30" rows="10">Расскажите обо всех повадках кота</textarea>
+          <textarea class="form__textarea" name="about" id="about" cols="10"
+            rows="5">Расскажите обо всех повадках кота</textarea>
         </div>
         <h3 class="form__title">Дополнительно</h3>
-        <div class="form__wrapper">
-          <input type="checkbox" name="addition" id="sugar" class="visually-hidden form__checkbox">
-          <label for="sugar" class="form__label form__label--checkbox">Сахарозаменитель</label>
-          <input type="checkbox" name="addition" id="water" class="visually-hidden form__checkbox">
-          <label for="water" class="form__label form__label--checkbox">Питьевая вода</label>
-          <input type="checkbox" name="addition" id="milk" class="visually-hidden form__checkbox">
-          <label for="milk" class="form__label form__label--checkbox">Молоко</label>
-          <input type="checkbox" name="addition" id="vitamins" class="visually-hidden form__checkbox">
-          <label for="vitamins" class="form__label form__label--checkbox">Витамины</label>
+        <div class="form__column">
+          <div class="form__string">
+            <input type="checkbox" name="addition" id="sugar" class="visually-hidden form__checkbox">
+            <label for="sugar" class="form__label form__label--checkbox">Сахарозаменитель</label>
+          </div>
+          <div class="form__string">
+            <input type="checkbox" name="addition" id="water" class="visually-hidden form__checkbox">
+            <label for="water" class="form__label form__label--checkbox">Питьевая вода</label>
+
+          </div>
+          <div class="form__string">
+            <input type="checkbox" name="addition" id="milk" class="visually-hidden form__checkbox">
+            <label for="milk" class="form__label form__label--checkbox">Молоко</label>
+
+          </div>
+          <div class="form__string">
+            <input type="checkbox" name="addition" id="vitamins" class="visually-hidden form__checkbox">
+            <label for="vitamins" class="form__label form__label--checkbox">Витамины</label>
+          </div>
         </div>
 
-        <div class="form__wrapper">
+        <div class="form__column form__column--end">
           <button type="submit" class="form__button button">Отправить заявку</button>
-          <span class="form__surely">*-Обязательные поля</span>
+          <span class="form__surely">* &mdash; Обязательные поля</span>
         </div>
       </div>
     </form>
