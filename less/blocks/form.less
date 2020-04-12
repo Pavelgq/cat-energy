@@ -197,12 +197,12 @@
     }
 
     &:hover+.form__input-icon {
-      opacity: 0.3;
       fill: #68b738;
     }
 
-    &--error {
+    &--error+.form__input-icon {
       border: 1px solid #ff8282;
+      fill:#ff8282;
     }
 
   }
@@ -268,11 +268,11 @@
   &__column {
 
     &--contact .form__text {
-      padding-right: 50px;
+      padding-right: 40px;
     }
 
     &--contact .form__item:last-child .form__text {
-      max-width: 106px;
+      max-width: 126px;
     }
 
     &--end {

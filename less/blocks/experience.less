@@ -95,7 +95,7 @@
   left: 0;
 
   height: 240px;
-  background-image: url(/img/before-mobile.png);
+  background-image: url(/img/before-mobile@1x.png);
   background-position: right 0;
   background-size: cover;
   background-repeat: no-repeat;
@@ -109,7 +109,7 @@
   bottom: 0;
   right: 0;
   height: 300px;
-  background-image: url(/img/after-mobile.png);
+  background-image: url(/img/after-mobile@1x.png);
   background-position: left 0;
   background-size: cover;
   background-repeat: no-repeat;
@@ -117,6 +117,17 @@
 
   transition: 0.5s ;
 }
+
+@media (min-resolution: 1.5dppx) {
+  .experience__cat--after {
+    background-image: url(/img/after-mobile@2x.png);
+  }
+
+  .experience__cat--before {
+    background-image: url(/img/before-mobile@2x.png);
+  }
+}
+
 
 .experience__progress {
   display: flex;
@@ -251,7 +262,7 @@
     position: absolute;
     left: 65px;
     height: 465px;
-    background-image: url(/img/before-tablet.png);
+    background-image: url(/img/before-tablet@1x.png);
     background-position: left;
     background-size: cover;
     background-repeat: no-repeat;
@@ -262,13 +273,21 @@
     position: absolute;
     right: -65px;
     height: 465px;
-    background-image: url(/img/after-tablet.png);
+    background-image: url(/img/after-tablet@1x.png);
     background-position: right;
     background-size: cover;
     background-repeat: no-repeat;
     transition: none;
   }
+  @media (min-resolution: 1.5dppx) {
+    .experience__cat--after {
+      background-image: url(/img/after-tablet@2x.png);
+    }
 
+    .experience__cat--before {
+      background-image: url(/img/before-tablet@2x.png);
+    }
+  }
   .experience__range-wrapper {
     position: relative;
     display: flex;
