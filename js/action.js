@@ -15,7 +15,7 @@ nav.classList.remove('main-nav--nojs');
 function burgerClickMenu(){
     nav.classList.toggle("main-nav--opened");
 
-  
+
 }
 
 burger.addEventListener('click', burgerClickMenu);
@@ -36,6 +36,8 @@ var scale = progress.querySelector('.experience__progress');
 var range = scale.querySelector('.experience__range');
 
 function changeCatProgress () {
+
+
   before.addEventListener('click', function () {
     imgBefore.style.width = '100%';
     imgAfter.style.width = '0%';
@@ -59,7 +61,6 @@ function changeCatProgress () {
 
 before.addEventListener('click', changeCatProgress);
 after.addEventListener('click', changeCatProgress);
-
 
   window.addEventListener('load', function(){
     if (viewportWidth <= tabletWidth) {
@@ -92,5 +93,4 @@ if (viewportWidth > tabletWidth) {
     range.value = 100;
   });
 
-  console.log(scale,range);
 }
