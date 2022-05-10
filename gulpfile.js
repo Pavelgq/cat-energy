@@ -1,6 +1,5 @@
 "use strict";
 
-
 var gulp = require("gulp");
 var less = require("gulp-less");
 var plumber = require("gulp-plumber");
@@ -14,59 +13,63 @@ var webp = require("gulp-webp");
 var posthtml = require("gulp-posthtml");
 var include = require("posthtml-include");
 var run = require("run-sequence");
-var uglify = require('gulp-uglify');
-var pump = require('pump');
-var htmlmin = require('gulp-htmlmin');
-var csscomb = require('csscomb');
+var uglify = require("gulp-uglify");
+var pump = require("pump");
+var htmlmin = require("gulp-htmlmin");
+var csscomb = require("csscomb");
 var del = require("del");
-var svgSprite = require('gulp-svg-sprite');
-var svgmin = require('gulp-svgmin');
-var cheerio = require('gulp-cheerio');
-var replace = require('gulp-replace');;
+var svgSprite = require("gulp-svg-sprite");
+// var svgmin = require('gulp-svgmin');
+// var cheerio = require("gulp-cheerio");
+// var replace = require("gulp-replace");
+var ghPages = require("gulp-gh-pages");
 
 //Создание файла стилей и минификация
 gulp.task("style", function () {
-  return gulp.src("less/style.less")
+  return gulp
+    .src("less/style.less")
     .pipe(plumber())
     .pipe(less())
-    .pipe(postcss([
-      autoprefixer()
-    ]))
+    .pipe(postcss([autoprefixer()]))
     .pipe(gulp.dest("build/css"))
     .pipe(minify())
     .pipe(rename("style.min.css"))
     .pipe(gulp.dest("build/css"))
     .pipe(server.stream());
-
 });
 
 // Минификация js
 gulp.task("uglify", function () {
-  return gulp.src("js/*.js")
+  return gulp
+    .src("js/*.js")
     .pipe(uglify())
-    .pipe(rename({
-      suffix: ".min"
-    }))
+    .pipe(
+      rename({
+        suffix: ".min",
+      })
+    )
     .pipe(gulp.dest("build/js"))
     .pipe(server.stream());
 });
 
 // Размещение кода в разметке
 gulp.task("html", function () {
-  return gulp.src("*.html")
-    .pipe(posthtml([
-      include()
-    ]))
+  return gulp
+    .src("*.html")
+    .pipe(posthtml([include()]))
     .pipe(gulp.dest("build"))
     .pipe(server.stream());
 });
 
 // Формирование изображений в формате webp
 gulp.task("webp", function () {
-  return gulp.src("img/**/*.{png,jpg}")
-    .pipe(webp({
-      quality: 80
-    }))
+  return gulp
+    .src("img/**/*.{png,jpg}")
+    .pipe(
+      webp({
+        quality: 80,
+      })
+    )
     .pipe(gulp.dest("build/img"));
 });
 
@@ -84,55 +87,44 @@ gulp.task("webp", function () {
 //     .pipe(gulp.dest("build/img/svg"));
 // });
 
-gulp.task('sprite', function () {
-	return gulp.src("img/**/*.svg")
-	// minify svg
-		.pipe(svgmin({
-			js2svg: {
-				pretty: true
-			}
-		}))
-		// remove all fill, style and stroke declarations in out shapes
-		.pipe(cheerio({
-			run: function ($) {
-				$('[fill]').removeAttr('fill');
-				$('[stroke]').removeAttr('stroke');
-				$('[style]').removeAttr('style');
-			},
-			parserOptions: {xmlMode: true}
-		}))
-		// cheerio plugin create unnecessary string '&gt;', so replace it.
-		.pipe(replace('&gt;', '>'))
-		// build svg sprite
-		.pipe(svgSprite({
-			mode: {
-				symbol: {
-					sprite: "../sprite.svg",
-				}
-			}
-		}))
-		.pipe(gulp.dest('build/img/svg'));
+gulp.task("sprite", function () {
+  return gulp
+    .src("img/**/*.svg")
+    .pipe(
+      svgSprite({
+        mode: {
+          symbol: {
+            sprite: "../sprite.svg",
+          },
+        },
+      })
+    )
+    .pipe(gulp.dest("build/img/svg"));
 });
 
 // Сортировка css-свойств
 gulp.task("csscomb", function () {
-  return gulp.src("less/blocks/*.less")
+  return gulp
+    .src("less/blocks/*.less")
     .pipe(csscomb())
     .pipe(gulp.dest("less/blocks/"));
 });
 
 // Оптимизация изображений
 gulp.task("imagemin", function () {
-  return gulp.src("img/**/*.{png,jpg,svg}")
-    .pipe(imagemin([
-      imagemin.optipng({
-        optimizationLevel: 3
-      }),
-      imagemin.jpegtran({
-        progressive: true
-      }),
-      imagemin.svgo()
-    ]))
+  return gulp
+    .src("img/**/*.{png,jpg,svg}")
+    .pipe(
+      imagemin([
+        imagemin.optipng({
+          optimizationLevel: 3,
+        }),
+        imagemin.jpegtran({
+          progressive: true,
+        }),
+        imagemin.svgo(),
+      ])
+    )
     .pipe(gulp.dest("img"));
 });
 
@@ -143,40 +135,32 @@ gulp.task("serve", function () {
     notify: false,
     open: true,
     cors: true,
-    ui: false
+    ui: false,
   });
-  gulp.watch('less/**/*.less', gulp.parallel(["style"]));
-  gulp.watch('*.html', gulp.parallel(["html"]));
-  gulp.watch('build\*.html').on('change', server.reload);
-  gulp.watch('js/*.js', gulp.parallel(["uglify"]));
-
+  gulp.watch("less/**/*.less", gulp.parallel(["style"]));
+  gulp.watch("*.html", gulp.parallel(["html"]));
+  gulp.watch("build*.html").on("change", server.reload);
+  gulp.watch("js/*.js", gulp.parallel(["uglify"]));
 });
 // Копирование файлов
 gulp.task("copy", function () {
-  return gulp.src([
-      "fonts/*.{woff,woff2}",
-      "img/**",
-      "js/*.js"
-    ], {
-      base: "."
+  return gulp
+    .src(["fonts/*.{woff,woff2}", "img/**", "js/*.js"], {
+      base: ".",
     })
     .pipe(gulp.dest("build"));
 });
-
 
 // Удаление файлов
 gulp.task("clean", function () {
   return del("build");
 });
-
+gulp.task("deploy", function () {
+  return gulp.src("./build/**/*").pipe(ghPages());
+});
 
 // Сборка проекта
-gulp.task("build", gulp.series(
-  "clean",
-  "copy",
-  "style",
-  "uglify",
-  "sprite",
-  "html",
-  "webp"
-));
+gulp.task(
+  "build",
+  gulp.series("clean", "copy", "style", "uglify", "sprite", "html", "webp")
+);
