@@ -1,4 +1,4 @@
 # cat-energy
 ## Адаптивная верстка по макету
 
-[смотреть](https://pavelgq.github.io/cat-energy-preview/)
+[смотреть](https://pavelgq.github.io/cat-energy/index.html)
