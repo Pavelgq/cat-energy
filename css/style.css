@@ -309,14 +309,14 @@ template {
 }
 @font-face {
   font-family: "Oswald-Regular";
-  src: url("./fonts/Oswald-Regular.woff2") format("woff2"), url("./fonts/Oswald-Regular.woff") format("woff");
+  src: url("../fonts/Oswald-Regular.woff2") format("woff2"), url("../fonts/Oswald-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Oswald-Bold";
-  src: url("./fonts/Oswald-Bold.woff2") format("woff2"), url("./fonts/Oswald-Bold.woff") format("woff");
+  src: url("../fonts/Oswald-Bold.woff2") format("woff2"), url("../fonts/Oswald-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -497,7 +497,7 @@ path {
     right: 0;
     width: 50%;
     height: 698px;
-    background-image: url("../img/index-background-desktop@1x.jpg");
+    background-image: url("../img/source/index-background-desktop@1x.jpg");
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: top right;
@@ -521,7 +521,7 @@ path {
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
   .page-header::after {
-    background-image: url("../img/index-background-desktop@2x.jpg");
+    background-image: url("../img/source/index-background-desktop@2x.jpg");
   }
 }
 .page-main__title {
