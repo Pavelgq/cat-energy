@@ -1118,19 +1118,19 @@ path {
   background-color: #68b738;
 }
 .how-to__item--nature::before {
-  background-image: url(/img/advantage-leaf@1x.png);
+  background-image: url(../img/advantage-leaf@1x.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 60px 60px ;
 }
 .how-to__item--struct::before {
-  background-image: url(/img/advantage-powder@1x.png);
+  background-image: url(../img/advantage-powder@1x.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 60px 60px ;
 }
 .how-to__item--eat::before {
-  background-image: url(/img/advantage-dining@1x.png);
+  background-image: url(../img/advantage-dining@1x.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 60px 60px ;
@@ -1726,7 +1726,7 @@ path {
   left: 120px;
   width: 62px;
   height: 53px;
-  background-image: url("img/map-pin.png");
+  background-image: url("../img/map-pin.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
